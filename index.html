@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="icone/png">
+    <title>Formulário - Vedovello Veículos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Sua Nova Conquista Começa Aqui</h1>
+    <p class="intro">
+        Queremos te ajudar a encontrar o veículo ideal para o seu momento de vida.<br>
+        Responda essas perguntas rápidas para montarmos a melhor proposta para você!
+    </p>
+
+    <form id="formulario">
+
+        <label>1. Qual seu nome completo?</label>
+        <input type="text" name="nome" required>
+
+        <label>2. Qual sua idade?</label>
+        <input type="number" name="idade" required>
+
+        <label>3. Qual sua profissão ou atividade principal?</label>
+        <input type="text" name="profissao" required>
+
+        <label>4. Você já tem um veículo atualmente?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="possuiVeiculo" value="Sim, quero trocar" required> Sim, quero trocar</label>
+            <label><input type="radio" name="possuiVeiculo" value="Não, será meu primeiro carro" required> Não, será meu primeiro carro</label>
+        </div>
+
+        <label>5. Que tipo de veículo você procura?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="tipoVeiculo" value="Hatch" required> Hatch</label>
+            <label><input type="radio" name="tipoVeiculo" value="Sedan" required> Sedan</label>
+            <label><input type="radio" name="tipoVeiculo" value="SUV" required> SUV</label>
+            <label><input type="radio" name="tipoVeiculo" value="Pickup" required> Pickup</label>
+            <label><input type="radio" name="tipoVeiculo" value="Moto" required> Moto</label>
+            <label><input type="radio" name="tipoVeiculo" value="Outro" id="outroTipo"> Outro</label>
+            <input type="text" name="outroTipoVeiculo" id="campoOutroTipo" placeholder="Especifique..." style="display:none; margin-top:5px;">
+        </div>
+
+        <label>6. Prefere veículos:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="preferenciaVeiculo" value="Novos" required> Novos</label>
+            <label><input type="radio" name="preferenciaVeiculo" value="Seminovos" required> Seminovos</label>
+            <label><input type="radio" name="preferenciaVeiculo" value="Ambos" required> Ambos, quero avaliar as melhores opções</label>
+        </div>
+
+        <label>7. Quanto você pretende investir?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="investimento" value="Até R$30.000" required> Até R$30.000</label>
+            <label><input type="radio" name="investimento" value="De R$30.000 a R$60.000" required> De R$30.000 a R$60.000</label>
+            <label><input type="radio" name="investimento" value="De R$60.000 a R$100.000" required> De R$60.000 a R$100.000</label>
+            <label><input type="radio" name="investimento" value="Acima de R$100.000" required> Acima de R$100.000</label>
+            <label><input type="radio" name="investimento" value="Ainda estou definindo" required> Ainda estou definindo</label>
+        </div>
+
+        <label>8. Forma de pagamento que prefere?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="pagamento" value="À vista" required> À vista</label>
+            <label><input type="radio" name="pagamento" value="Financiamento" required> Financiamento</label>
+            <label><input type="radio" name="pagamento" value="Troca com troco" required> Troca com troco</label>
+            <label><input type="radio" name="pagamento" value="Consórcio" required> Consórcio</label>
+            <label><input type="radio" name="pagamento" value="Ainda não decidi" required> Ainda não decidi</label>
+        </div>
+
+        <label>9. Quando pretende realizar a compra?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="tempoCompra" value="Imediatamente" required> Imediatamente</label>
+            <label><input type="radio" name="tempoCompra" value="Dentro de 30 dias" required> Dentro de 30 dias</label>
+            <label><input type="radio" name="tempoCompra" value="Nos próximos 3 meses" required> Nos próximos 3 meses</label>
+            <label><input type="radio" name="tempoCompra" value="Sem previsão ainda" required> Sem previsão ainda</label>
+        </div>
+
+        <label>10. Você já foi aprovado em financiamento ou precisa de ajuda?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="financiamento" value="Já aprovado" required> Já aprovado</label>
+            <label><input type="radio" name="financiamento" value="Preciso de ajuda para aprovação" required> Preciso de ajuda para aprovação</label>
+            <label><input type="radio" name="financiamento" value="Quero saber mais sobre isso" required> Quero saber mais sobre isso</label>
+        </div>
+
+        <label>11. Como você conheceu nossa loja?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="conheceuLoja" value="Redes sociais" required> Redes sociais</label>
+            <label><input type="radio" name="conheceuLoja" value="Indicação de amigo/familiar" required> Indicação de amigo/familiar</label>
+            <label><input type="radio" name="conheceuLoja" value="Google" required> Google/Pesquisa na internet</label>
+            <label><input type="radio" name="conheceuLoja" value="Passando na frente da loja" required> Passando na frente da loja</label>
+            <label><input type="radio" name="conheceuLoja" value="Outros" id="outroConheceu"> Outros</label>
+            <input type="text" name="outroConheceuLoja" id="campoOutroConheceu" placeholder="Especifique..." style="display:none; margin-top:5px;">
+        </div>
+
+        <label>12. Se foi indicado, quem nos indicou?</label>
+        <input type="text" name="indicacao">
+
+        <label>13. Deixe seu e-mail:</label>
+        <input type="email" name="email" required>
+
+        <label>14. Celular para contato:</label>
+        <input type="tel" name="telefone" id="telefone" required>
+
+        <label>15. Alguma observação ou necessidade especial?</label>
+        <textarea name="observacoes" rows="4"></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

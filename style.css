@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    font-size: 16px;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    padding: 1rem;
+  }
+  
+  form {
+    background: #fff;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-top: 0.5rem solid rgb(255, 199, 44);
+    transition: transform .3s ease;
+  }
+  form:hover {
+    transform: translateY(-5px);
+  }
+  
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: rgb(35, 35, 35);
+  }
+  .intro {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #555;
+  }
+  
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color .2s;
+  }
+  input:focus,
+  textarea:focus {
+    border-color: rgb(255, 199, 44);
+    outline: none;
+  }
+  
+  .radio-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+  }
+  .radio-group input[type="radio"] {
+    accent-color: rgb(255, 199, 44);
+    margin-right: 0.5rem;
+  }
+  
+  #campoOutroTipo,
+  #campoOutroConheceu {
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    width: 100%;
+    display: none;
+    transition: all .3s ease;
+  }
+  
+  button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgb(255, 199, 44);
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+  }
+  button:hover {
+    background: #e6b832;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    form {
+      padding: 1.5rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    .radio-group {
+      grid-template-columns: 1fr;
+    }
+  }
+  
