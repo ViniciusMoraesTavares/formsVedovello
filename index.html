@@ -1,113 +1,177 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icone.png" type="image/png">
-    <title>Formulário - Vedovello Veículos</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário – Vedovello Veículos</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <h1>Sua Nova Conquista Começa Aqui</h1>
+  <header class="form-header">
+    <h1>Sua Nova Conquista Começa Aqui!</h1>
     <p class="intro">
-        Queremos te ajudar a encontrar o veículo ideal para o seu momento de vida.<br>
-        Responda essas perguntas rápidas para montarmos a melhor proposta para você!
+      Queremos ajudar você a encontrar o veículo ideal para esta fase da sua vida.<br>
+      Responda em poucos passos e receba a melhor proposta!
     </p>
+  </header>
 
-    <form id="formulario">
+  
+  <form id="formulario" novalidate>
+      <div class="progress-container">
+        <div class="progress" id="progress"></div>
+        <div class="progress-step progress-step-active" data-title="1"></div>
+        <div class="progress-step" data-title="2"></div>
+        <div class="progress-step" data-title="3"></div>
+      </div>
 
-        <label>1. Qual seu nome completo?</label>
-        <input type="text" name="nome" required>
+      <!-- Etapa 1 -->
+    <fieldset class="form-step form-step-active">
+      <label for="nome">1. Qual é o seu nome completo?</label>
+      <input type="text" id="nome" name="nome" required>
+      <div class="error-message" id="error-nome"></div>
 
-        <label>2. Qual sua idade?</label>
-        <input type="number" name="idade" required>
+      <label for="idade">2. Qual a sua idade?</label>
+      <input type="number" id="idade" name="idade" required>
+      <div class="error-message" id="error-idade"></div>
 
-        <label>3. Qual sua profissão ou atividade principal?</label>
-        <input type="text" name="profissao" required>
+      <label for="profissao">3. Qual a sua profissão ou atividade principal?</label>
+      <input type="text" id="profissao" name="profissao" required>
+      <div class="error-message" id="error-profissao"></div>
 
-        <label>4. Você já tem um veículo atualmente?</label>
-        <div class="radio-group">
-            <label><input type="radio" name="possuiVeiculo" value="Sim, quero trocar" required> Sim, quero trocar</label>
-            <label><input type="radio" name="possuiVeiculo" value="Não, será meu primeiro carro" required> Não, será meu primeiro carro</label>
-        </div>
+      <label>4. Você já possui um veículo?</label>
+      <div class="options-group">
+        <label class="option-box">
+          <input type="radio" name="possuiVeiculo" value="Sim, quero trocar" required>
+          Sim, quero trocar
+        </label>
+        <label class="option-box">
+          <input type="radio" name="possuiVeiculo" value="Não, será meu primeiro carro" required>
+          Não, será meu primeiro carro
+        </label>
+      </div>
+      <div class="error-message" id="error-possuiVeiculo"></div>
 
-        <label>5. Que tipo de veículo você procura?</label>
-        <div class="radio-group">
-            <label><input type="radio" name="tipoVeiculo" value="Hatch" required> Hatch</label>
-            <label><input type="radio" name="tipoVeiculo" value="Sedan" required> Sedan</label>
-            <label><input type="radio" name="tipoVeiculo" value="SUV" required> SUV</label>
-            <label><input type="radio" name="tipoVeiculo" value="Pickup" required> Pickup</label>
-            <label><input type="radio" name="tipoVeiculo" value="Moto" required> Moto</label>
-            <label><input type="radio" name="tipoVeiculo" value="Outro" id="outroTipo"> Outro</label>
-            <input type="text" name="outroTipoVeiculo" id="campoOutroTipo" placeholder="Especifique..." style="display:none; margin-top:5px;">
-        </div>
+      <label>5. Que tipo de veículo você procura?</label>
+      <div class="options-group">
+        <label class="option-box"><input type="radio" name="tipoVeiculo" value="Hatch" required> Hatch</label>
+        <label class="option-box"><input type="radio" name="tipoVeiculo" value="Sedan" required> Sedan</label>
+        <label class="option-box"><input type="radio" name="tipoVeiculo" value="SUV" required> SUV</label>
+        <label class="option-box"><input type="radio" name="tipoVeiculo" value="Pickup" required> Pickup</label>
+        <label class="option-box"><input type="radio" name="tipoVeiculo" value="Moto" required> Moto</label>
+        <label class="option-box">
+          <input type="radio" name="tipoVeiculo" value="Outro" id="outroTipo1"> Outro
+        </label>
+      </div>
+      <input type="text" id="campoOutro1" name="outroTipoVeiculo" placeholder="Especifique..." class="other-input">
+      <div class="error-message" id="error-outroTipoVeiculo"></div>
+      <div class="buttons">
+        <button type="button" class="btn-next">Próximo</button>
+      </div>
+    </fieldset>
 
-        <label>6. Prefere veículos:</label>
-        <div class="radio-group">
-            <label><input type="radio" name="preferenciaVeiculo" value="Novos" required> Novos</label>
-            <label><input type="radio" name="preferenciaVeiculo" value="Seminovos" required> Seminovos</label>
-            <label><input type="radio" name="preferenciaVeiculo" value="Ambos" required> Ambos, quero avaliar as melhores opções</label>
-        </div>
+    <!-- Etapa 2 -->
+    <fieldset class="form-step">
+      <label>6. Você prefere veículo:</label>
+      <div class="options-group">
+        <label class="option-box"><input type="radio" name="preferenciaVeiculo" value="Novos" required> Novos</label>
+        <label class="option-box"><input type="radio" name="preferenciaVeiculo" value="Seminovos" required> Seminovos</label>
+        <label class="option-box"><input type="radio" name="preferenciaVeiculo" value="Ambos" required> Ambos, avaliar todas</label>
+      </div>
+      <div class="error-message" id="error-preferenciaVeiculo"></div>
 
-        <label>7. Quanto você pretende investir?</label>
-        <div class="radio-group">
-            <label><input type="radio" name="investimento" value="Até R$30.000" required> Até R$30.000</label>
-            <label><input type="radio" name="investimento" value="De R$30.000 a R$60.000" required> De R$30.000 a R$60.000</label>
-            <label><input type="radio" name="investimento" value="De R$60.000 a R$100.000" required> De R$60.000 a R$100.000</label>
-            <label><input type="radio" name="investimento" value="Acima de R$100.000" required> Acima de R$100.000</label>
-            <label><input type="radio" name="investimento" value="Ainda estou definindo" required> Ainda estou definindo</label>
-        </div>
+      <label>7. Faixa de investimento:</label>
+      <div class="options-group">
+        <label class="option-box"><input type="radio" name="investimento" value="Até R$30.000" required> Até R$30.000</label>
+        <label class="option-box"><input type="radio" name="investimento" value="R$30k–60k" required> R$30.000–60.000</label>
+        <label class="option-box"><input type="radio" name="investimento" value="R$60k–100k" required> R$60.000–100.000</label>
+        <label class="option-box"><input type="radio" name="investimento" value="Acima de R$100k" required> Acima de R$100.000</label>
+        <label class="option-box"><input type="radio" name="investimento" value="Definindo" required> Ainda estou definindo</label>
+      </div>
+      <div class="error-message" id="error-investimento"></div>
 
-        <label>8. Forma de pagamento que prefere?</label>
-        <div class="radio-group">
-            <label><input type="radio" name="pagamento" value="À vista" required> À vista</label>
-            <label><input type="radio" name="pagamento" value="Financiamento" required> Financiamento</label>
-            <label><input type="radio" name="pagamento" value="Troca com troco" required> Troca com troco</label>
-            <label><input type="radio" name="pagamento" value="Consórcio" required> Consórcio</label>
-            <label><input type="radio" name="pagamento" value="Ainda não decidi" required> Ainda não decidi</label>
-        </div>
+      <label>8. Forma de pagamento:</label>
+      <div class="options-group">
+        <label class="option-box"><input type="radio" name="pagamento" value="À vista" required> À vista</label>
+        <label class="option-box"><input type="radio" name="pagamento" value="Financiamento" required> Financiamento</label>
+        <label class="option-box"><input type="radio" name="pagamento" value="Troca + troco" required> Troca + troco</label>
+        <label class="option-box"><input type="radio" name="pagamento" value="Consórcio" required> Consórcio</label>
+        <label class="option-box"><input type="radio" name="pagamento" value="Não decidi" required> Ainda não decidi</label>
+      </div>
+      <div class="error-message" id="error-pagamento"></div>
 
-        <label>9. Quando pretende realizar a compra?</label>
-        <div class="radio-group">
-            <label><input type="radio" name="tempoCompra" value="Imediatamente" required> Imediatamente</label>
-            <label><input type="radio" name="tempoCompra" value="Dentro de 30 dias" required> Dentro de 30 dias</label>
-            <label><input type="radio" name="tempoCompra" value="Nos próximos 3 meses" required> Nos próximos 3 meses</label>
-            <label><input type="radio" name="tempoCompra" value="Sem previsão ainda" required> Sem previsão ainda</label>
-        </div>
+      <label>9. Previsão de compra:</label>
+      <div class="options-group">
+        <label class="option-box"><input type="radio" name="tempoCompra" value="Imediatamente" required> Imediatamente</label>
+        <label class="option-box"><input type="radio" name="tempoCompra" value="30 dias" required> Dentro de 30 dias</label>
+        <label class="option-box"><input type="radio" name="tempoCompra" value="3 meses" required> Em até 3 meses</label>
+        <label class="option-box"><input type="radio" name="tempoCompra" value="Sem previsão" required> Sem previsão ainda</label>
+      </div>
+      <div class="error-message" id="error-tempoCompra"></div>
 
-        <label>10. Você já foi aprovado em financiamento ou precisa de ajuda?</label>
-        <div class="radio-group">
-            <label><input type="radio" name="financiamento" value="Já aprovado" required> Já aprovado</label>
-            <label><input type="radio" name="financiamento" value="Preciso de ajuda para aprovação" required> Preciso de ajuda para aprovação</label>
-            <label><input type="radio" name="financiamento" value="Quero saber mais sobre isso" required> Quero saber mais sobre isso</label>
-        </div>
+      <label>10. Status do financiamento:</label>
+      <div class="options-group">
+        <label class="option-box"><input type="radio" name="financiamento" value="Aprovado" required> Já aprovado</label>
+        <label class="option-box"><input type="radio" name="financiamento" value="Preciso de ajuda" required> Preciso de ajuda</label>
+        <label class="option-box"><input type="radio" name="financiamento" value="Quero saber mais" required> Quero saber mais</label>
+      </div>
+      <div class="error-message" id="error-financiamento"></div>
 
-        <label>11. Como você conheceu nossa loja?</label>
-        <div class="radio-group">
-            <label><input type="radio" name="conheceuLoja" value="Redes sociais" required> Redes sociais</label>
-            <label><input type="radio" name="conheceuLoja" value="Indicação de amigo/familiar" required> Indicação de amigo/familiar</label>
-            <label><input type="radio" name="conheceuLoja" value="Google" required> Google/Pesquisa na internet</label>
-            <label><input type="radio" name="conheceuLoja" value="Passando na frente da loja" required> Passando na frente da loja</label>
-            <label><input type="radio" name="conheceuLoja" value="Outros" id="outroConheceu"> Outros</label>
-            <input type="text" name="outroConheceuLoja" id="campoOutroConheceu" placeholder="Especifique..." style="display:none; margin-top:5px;">
-        </div>
+      <div class="buttons">
+        <button type="button" class="btn-prev">Anterior</button>
+        <button type="button" class="btn-next">Próximo</button>
+      </div>
+    </fieldset>
 
-        <label>12. Se foi indicado, quem nos indicou?</label>
-        <input type="text" name="indicacao">
+    <!-- Etapa 3 -->
+    <fieldset class="form-step">
+      <label>11. Como você conheceu nossa loja?</label>
+      <div class="options-group">
+        <label class="option-box"><input type="radio" name="conheceuLoja" value="Redes sociais" required> Redes sociais</label>
+        <label class="option-box"><input type="radio" name="conheceuLoja" value="Indicação" required> Indicação de amigo/familiar</label>
+        <label class="option-box"><input type="radio" name="conheceuLoja" value="Google" required> Google / Pesquisa</label>
+        <label class="option-box"><input type="radio" name="conheceuLoja" value="Visita" required> Passando em frente à loja</label>
+        <label class="option-box"><input type="radio" name="conheceuLoja" value="Outro" id="outroConheceu3"> Outro</label>
+      </div>
+      <input type="text" id="campoOutro3" name="outroConheceuLoja" placeholder="Especifique..." class="other-input">
+      <div class="error-message" id="error-outroConheceuLoja"></div>
+      <div class="error-message" id="error-conheceuLoja"></div>
 
-        <label>13. Deixe seu e-mail:</label>
-        <input type="email" name="email" required>
+      <label for="indicacao">12. Se foi indicação, quem indicou?</label>
+      <input type="text" id="indicacao" name="indicacao">
+      <div class="error-message" id="error-indicacao"></div>
 
-        <label>14. Celular para contato:</label>
-        <input type="tel" name="telefone" id="telefone" required>
+      <label for="email">13. E-mail para contato</label>
+      <input type="email" id="email" name="email" required>
+      <div class="error-message" id="error-email"></div>
 
-        <label>15. Alguma observação ou necessidade especial?</label>
-        <textarea name="observacoes" rows="4"></textarea>
+      <label for="telefone">14. Celular para contato</label>
+      <input type="tel" id="telefone" name="telefone" required>
+      <div class="error-message" id="error-telefone"></div>
 
-        <button type="submit">Enviar</button>
-    </form>
+      <label for="observacoes">15. Observações ou necessidades especiais</label>
+      <textarea id="observacoes" name="observacoes" rows="3"></textarea>
 
-    <script src="script.js"></script>
+      <div class="buttons">
+        <button type="button" class="btn-prev">Anterior</button>
+        <button type="submit" class="btn-submit">Enviar</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal-content">
+      <p>Você será redirecionado para o WhatsApp. Basta enviar a mensagem e em breve receberá nosso atendimento.</p>
+      <div class="modal-buttons">
+        <button id="modal-cancel" class="btn">Cancelar</button>
+        <button id="modal-confirm" class="btn">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Vedovello Veículos
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

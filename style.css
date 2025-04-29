@@ -1,123 +1,276 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 16px;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #FFF9C4;
+  color: #00ce22;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header.form-header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+header .intro {
+  margin-top: .5rem;
+  color: #555;
+}
+
+/* Container do formulário */
+form {
+  background: #fff;
+  width: 90%;
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 3.5rem 2rem 2rem;   
+  position: relative;         
+  
+}
+
+/* Barra de progresso */
+form .progress-container {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5rem;
+  z-index: 2;
+}
+form .progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #ddd;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+form .progress::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: var(--progress-done, 0);
+  background: #FFCA28;
+  transition: width .4s ease;
+}
+form .progress-step {
+  width: 2rem;
+  height: 2rem;
+  background: #fff;
+  border: 3px solid #FFCA28;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #FFCA28;
+  z-index: 3;
+}
+form .progress-step::after {
+  content: attr(data-title);
+}
+form .progress-step-active {
+  background: #FFCA28;
+  color: #fff;
+}
+
+/* Etapas do formulário */
+.form-step {
+  display: none;
+}
+.form-step-active {
+  display: block;
+}
+
+form .form-step:first-of-type .buttons {
+  justify-content: flex-end;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  color: #726f6f;
+  font-weight: 600;
+}
+input,
+textarea {
+  width: 100%;
+  padding: .75rem 1rem;
+  margin-top: .25rem;
+  border: 2px solid #ddd;
+  border-radius: .5rem;
+  font-size: 1rem;
+  transition: border-color .2s;
+}
+input:focus,
+textarea:focus {
+  border-color: #FFCA28;
+  outline: none;
+}
+
+.options-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: .25rem;
+}
+.option-box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: .5rem 1rem;
+  border: 2px solid #FFCA28;
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  width: auto;
+  font-size: 1rem;
+  color: #FFCA28;
+  background: #fff;
+}
+
+/* animação suave */
+.option-box {
+  transition: background .2s, color .2s, border-color .2s, transform .2s;
+}
+
+/* hover: destaque a caixa inteira */
+.option-box:hover {
+  background-color: #FFCA28;
+  color: #fff;
+  border-color: #FFCA28;
+  transform: translateY(-2px);
+}
+
+.option-box input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: 2;
+}
+.option-box:has(input:checked) {
+  background-color: #FFCA28;
+  color: #fff;
+  border-color: #FFCA28;
+}
+
+/* Campo “Outro” */
+.other-input {
+  display: none;
+  margin-top: .5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+button {
+  padding: .75rem 2rem;
+  background: #FFCA28;
+  border: none;
+  border-radius: .75rem;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+button:hover {
+  transform: translateY(-2px);
+  background: #e6b832;
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: .875rem;
+  margin-top: .25rem;
+  min-height: 1.2em;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: .875rem;
+  color: #313131;
+}
+
+@media(max-width:600px) {
+  .options-group {
+    justify-content: center;
   }
-  html {
-    font-size: 16px;
+  .buttons {
+    flex-direction: column-reverse;
+    gap: 1rem;
   }
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: #f9f9f9;
-    color: #333;
-    padding: 1rem;
+}
+
+   .hidden {
+    display: none !important;
   }
   
-  form {
-    background: #fff;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border-top: 0.5rem solid rgb(255, 199, 44);
-    transition: transform .3s ease;
-  }
-  form:hover {
-    transform: translateY(-5px);
-  }
-  
-  h1 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    color: rgb(35, 35, 35);
-  }
-  .intro {
-    text-align: center;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    color: #555;
-  }
-  
-  label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    margin-top: 1rem;
-  }
-  input[type="text"],
-  input[type="number"],
-  input[type="email"],
-  input[type="tel"],
-  textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 2px solid #ddd;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    transition: border-color .2s;
-  }
-  input:focus,
-  textarea:focus {
-    border-color: rgb(255, 199, 44);
-    outline: none;
-  }
-  
-  .radio-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  .radio-group label {
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
     display: flex;
     align-items: center;
-    font-weight: 400;
-  }
-  .radio-group input[type="radio"] {
-    accent-color: rgb(255, 199, 44);
-    margin-right: 0.5rem;
+    justify-content: center;
+    z-index: 999;
   }
   
-  #campoOutroTipo,
-  #campoOutroConheceu {
-    margin-top: 0.5rem;
-    padding: 0.75rem 1rem;
-    border: 2px solid #ddd;
-    border-radius: 0.5rem;
-    width: 100%;
-    display: none;
-    transition: all .3s ease;
+  .modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: .5rem;
+    max-width: 90%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-align: center;
   }
   
-  button {
-    width: 100%;
-    padding: 1rem;
-    margin-top: 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    background: rgb(255, 199, 44);
+  .modal-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: .75rem;
+  }
+  .modal-buttons .btn {
+    padding: .5rem 1.5rem;
+    background: #FFCA28;
     border: none;
-    border-radius: 0.75rem;
+    border-radius: .5rem;
+    color: #fff;
+    font-weight: 600;
     cursor: pointer;
-    transition: background .2s, transform .2s;
   }
-  button:hover {
+  .modal-buttons .btn:hover {
     background: #e6b832;
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: 600px) {
-    form {
-      padding: 1.5rem;
-    }
-    h1 {
-      font-size: 1.5rem;
-    }
-    .radio-group {
-      grid-template-columns: 1fr;
-    }
   }
   
+form fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
